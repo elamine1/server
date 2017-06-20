@@ -1,5 +1,5 @@
 /**
- * Created by Ruben on 16-6-2017.
+ * Created by Mohamed on 16-6-2017.
  */
 var mysql = require('mysql');
 var config = require('./config');
@@ -9,7 +9,7 @@ exports.connect = function() {
     pool = mysql.createPool({
         host: process.env.DB_HOST || config.dbHost,
         user: process.env.DB_USER || config.dbUser,
-        password: process.env.DB_PASSWORD || config.dbPassword,
+        password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE || config.dbDatabase,
     });
 }

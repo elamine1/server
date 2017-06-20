@@ -39,8 +39,7 @@ app.post('/api/v1/register', function(req, res) {
         username: req.body.username,
         password: req.body.password,
         first_name: req.body.firstName,
-        last_name: req.body.lastName,
-        email: req.body.email
+        last_name: req.body.lastName
       };
       db.get().query('INSERT INTO customer SET ?', [user], function(err, result){
         if (err) throw err;
@@ -48,8 +47,8 @@ app.post('/api/v1/register', function(req, res) {
           id: result.insertId,
           username: user.username,
           password: user.password,
-          firstName: user.first_name,
-          email: user.email
+          firstName: user.first_name
+          
         };
         res.status(201).send({
           id_token: createToken(newUser)
